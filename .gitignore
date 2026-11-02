@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
+envs/
+
+# HPC artifacts
+logs/
+jobs/
+*.log
+*.out
+*.err
+slurm-*.out
+
+# Simulation outputs
+results/
+data/
+archive/
+
+# External software
+external/
+
+# Reference-derived parameter data
+parameters/**/*.tsv
+parameters/**/*.tsv.gz
+parameters/**/*.csv
+parameters/**/*.h5
+parameters/**/*.h5ad
+
+# Temporary files
+*.bak*
+*.pre_*
+*.tmp
+*.tar.gz
+*.zip
+
+# Editor
+.vscode/
+.idea/
+.DS_Store
+
+# Research calibration implementations retained locally for development
+custom_reference/calibration/reference_implementations/
+
+/external/
+
+# Locally registered integration-test cancer
+/configs/cancers/CRC_TEST.yaml
+/configs/examples/crc_test_custom.yaml
+/parameters/CRC_TEST/
+# Generated custom calibration results and local reference data
+/custom_reference/**/*.h5ad
+/custom_reference/**/*.h5
+/custom_reference/**/*.mtx
+/custom_reference/**/*.mtx.gz

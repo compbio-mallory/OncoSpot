@@ -8,6 +8,20 @@ The framework integrates DEMON-based tumor evolution, CNAsim-based copy-number s
 
 OncoSpot generates cell-level and spot-level ground truth for benchmarking computational methods in cancer spatial transcriptomics.
 
+## Using OncoSpot with Other Cancer Types
+
+OncoSpot can be extended beyond its three existing cancer presets
+by supplying cancer-specific reference-derived parameters and
+appropriate tumor evolution settings.
+
+See the **[Custom Cancer Reference Guide](custom_reference/README.md)**
+for required input data, parameter estimation, DEMON mode selection,
+configuration, and validation instructions.
+
+**Note:** Fully automated calibration from arbitrary user-provided
+references is under development. The guide documents the current
+extension procedure and its requirements.
+
 ## 1. Features
 
 - Spatially organized malignant and nonmalignant populations
