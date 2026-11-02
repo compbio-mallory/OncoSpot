@@ -1,0 +1,58 @@
+preset_name: HCC_GSE149614_empirical_states
+cancer_type: HCC
+reference_dataset: GSE149614
+source_gene_sets: data/references/msigdb/hallmark/h.all.v2026.1.Hs.symbols.gmt
+scoring_method: mean_of_within_gene_standardized_log1p_CPM
+state_scale: global_mean_0_population_sd_1
+reference_cells: 14202
+states:
+- PROLIFERATION
+- WNT
+- MYC
+- HYPOXIA
+- EMT
+- METABOLIC
+signature_coverage:
+  PROLIFERATION:
+    signature_genes: 327
+    usable_genes: 304
+    coverage_fraction: 0.9296636085626911
+    source_sets:
+    - HALLMARK_E2F_TARGETS
+    - HALLMARK_G2M_CHECKPOINT
+  WNT:
+    signature_genes: 42
+    usable_genes: 41
+    coverage_fraction: 0.9761904761904762
+    source_sets:
+    - HALLMARK_WNT_BETA_CATENIN_SIGNALING
+  MYC:
+    signature_genes: 200
+    usable_genes: 186
+    coverage_fraction: 0.93
+    source_sets:
+    - HALLMARK_MYC_TARGETS_V1
+  HYPOXIA:
+    signature_genes: 200
+    usable_genes: 182
+    coverage_fraction: 0.91
+    source_sets:
+    - HALLMARK_HYPOXIA
+  EMT:
+    signature_genes: 200
+    usable_genes: 191
+    coverage_fraction: 0.955
+    source_sets:
+    - HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION
+  METABOLIC:
+    signature_genes: 200
+    usable_genes: 184
+    coverage_fraction: 0.92
+    source_sets:
+    - HALLMARK_GLYCOLYSIS
+model:
+  type: empirical_cell_state_sampling
+  sampling: row_with_replacement
+  clone_conditioning: false
+  lineage_inheritance: false
+status: provisional_pending_state_effect_fitting

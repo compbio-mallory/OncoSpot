@@ -1,0 +1,86 @@
+preset_name: HGSOC_default
+architecture: invasive_glandular
+preset_version: '1.0'
+provenance:
+  source: archived_showcase_candidate_10_with_20261008_clone_calibration
+  note: The invasive-glandular DEMON architecture originated from the previously selected
+    candidate_10 configuration. Driver birth mutation rate and driver birth fitness
+    were subsequently recalibrated for the active HGSOC simulator on 2026-10-08 using
+    multi-seed sweeps. The selected setting centers the malignant-represented subclone
+    count near 10-12 while retaining stochastic between-realization variation.
+  clone_calibration:
+    date: '2026-10-08'
+    target: malignant-represented subclone count centered near 10-12
+    selected_mu_driver_birth: 6.0e-05
+    selected_s_driver_birth: 0.1
+    finalist_validation_seeds: 20
+    median_malignant_clones: 12.0
+    mean_malignant_clones: 11.5
+    sd_malignant_clones: 2.188486619609663
+    observed_range_malignant_clones:
+    - 8
+    - 15
+    median_largest_clone_fraction: 0.5269333333333333
+    median_clones_ge_1pct: 5.0
+    median_effective_clone_number: 3.1362813356625714
+spatial_structure:
+  log2_deme_carrying_capacity:
+    default: 9
+    recommended_min: 8
+    recommended_max: 11
+    hard_min: 1
+    hard_max: 16
+dispersal:
+  migration_type: 0
+  init_migration_rate: -1
+  migration_edge_only: 0
+  migration_rate_scales_with_K: 1
+mutation_rates:
+  mu_driver_birth: 6.0e-05
+  mu_passenger:
+    default: 0.1
+    recommended_min: 0.01
+    recommended_max: 0.5
+    hard_min: 0.0
+    hard_max: 10.0
+  mu_driver_migration:
+    default: 0.0
+    hard_min: 0.0
+    hard_max: 0.01
+  passenger_pop_threshold: -1
+fitness_effects:
+  normal_birth_rate:
+    default: 0.9
+    recommended_min: 0.8
+    recommended_max: 1.0
+    hard_min: 0.0
+    hard_max: 2.0
+  baseline_death_rate:
+    default: 0.0
+    hard_min: 0.0
+    hard_max: 10.0
+  s_driver_birth: 0.1
+  s_passenger:
+    default: 0.0
+  s_driver_migration:
+    default: 0.0
+  max_relative_birth_rate:
+    default: 10.0
+  max_relative_migration_rate:
+    default: 10.0
+runtime:
+  init_pop: 1
+  max_pop_source: simulation.n_cells
+  max_time: 14400
+  max_generations: 3000
+  seed_source: simulation.seed
+outputs:
+  write_grid: 0
+  write_clones_file: 1
+  write_demes_file: 1
+  record_matrix: 0
+  write_phylo: 0
+  calculate_total_diversity: 0
+  biopsy_size_per_sample: 100
+validation_target:
+  intended_evolutionary_mode: branching

@@ -1,0 +1,42 @@
+cancer_type: CRC
+dataset: GSE132465
+status: provisional_requires_simulation_validation
+n_reference_cells: 17469
+n_reference_patients: 23
+n_runtime_genes: 13971
+origin_source: parameters/CRC/malignant/cell_of_origin/colon_stem_like_baseline.tsv
+state_source: parameters/CRC/tumor_states/crc_state_reference.tsv
+parameter_file: parameters/CRC/malignant/expression/malignant_expression_parameters.tsv
+states:
+- PROLIFERATION
+- WNT
+- MYC
+- HYPOXIA
+- EMT
+- METABOLIC
+coefficient_estimation:
+  model: patient_centered_ridge_log1p_cpm
+  not_exact_nb2_glm: true
+  ridge_lambda_per_cell: 0.05
+  gamma_absolute_cap: 0.3
+  minimum_detection: 0.01
+  minimum_mean_count: 0.05
+  signature_gene_circularity: Not yet corrected; score and response can share genes.
+    Requires sensitivity QC.
+cna_dosage:
+  beta: 0.4
+  source: illustrative_positive_fixed_coefficient
+  calibrated_from_crc_dna: false
+dispersion:
+  model: NB2
+  estimator: tumor_scale_residual_method_of_moments
+  fallback: 0.5
+  maximum: 10.0
+  note: May absorb patient heterogeneity and normal-vs-tumor baseline mismatch.
+state_effect_bounds:
+  lower_quantile: 0.005
+  upper_quantile: 0.995
+  reference: CRC GSE132465 tumor-state vectors
+  applies_to: combined_gamma_dot_state
+library_size_note: Library-size pool uses 19796 mapped genes; positive origin baseline
+  uses a subset. Check effective simulated depth.

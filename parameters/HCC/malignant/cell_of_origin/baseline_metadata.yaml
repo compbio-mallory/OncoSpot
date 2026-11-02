@@ -1,0 +1,23 @@
+cancer_type: HCC
+dataset: GSE149614
+reference_population: Normal_Hepatocyte
+origin_label: normal_hepatocyte
+method: equal_patient_weighted_pseudobulk
+annotation: GENCODE v50 GRCh38.p14 autosomes
+gene_mapping: data/references/HCC/GSE149614/processed/gene_mapping.tsv
+n_origin_cells: 1788
+n_origin_patients: 8
+n_genes: 17475
+n_positive_genes: 14690
+mapped_umi_fraction_in_origin_cells: 0.8625645702683793
+patient_cell_counts:
+  HCC03: 827
+  HCC04: 326
+  HCC06: 248
+  HCC09: 140
+  HCC10: 99
+  HCC05: 53
+  HCC07: 53
+  HCC08: 42
+baseline_file: parameters/HCC/malignant/cell_of_origin/normal_hepatocyte_baseline.tsv
+status: provisional_hcc_v1

@@ -1,0 +1,44 @@
+dataset: GSE132465
+cancer_type: CRC
+model: NB2
+variance_definition: Var(Y)=mu+phi*mu^2
+dispersion_level: one_pooled_dispersion_per_broad_cell_type
+estimation: pooled_residual_method_of_moments
+status: provisional_requires_validation
+parameters:
+  T_NK:
+    n_cells: 16739
+    genes_used: 4122
+    raw_method_of_moments_phi: 0.5124923171249726
+    dispersion: 0.5124923171249726
+    clipped: false
+  B_plasma:
+    n_cells: 3926
+    genes_used: 5243
+    raw_method_of_moments_phi: 7.7696784435042145
+    dispersion: 7.7696784435042145
+    clipped: false
+  macrophage_myeloid:
+    n_cells: 6400
+    genes_used: 5978
+    raw_method_of_moments_phi: 2.062486757594698
+    dispersion: 2.062486757594698
+    clipped: false
+  fibroblast:
+    n_cells: 1435
+    genes_used: 9429
+    raw_method_of_moments_phi: 0.7180044785732353
+    dispersion: 0.7180044785732353
+    clipped: false
+  endothelial:
+    n_cells: 698
+    genes_used: 8723
+    raw_method_of_moments_phi: 0.6358623098435257
+    dispersion: 0.6358623098435257
+    clipped: false
+  normal_epithelial:
+    n_cells: 1052
+    genes_used: 7904
+    raw_method_of_moments_phi: 1.1995177337374827
+    dispersion: 1.1995177337374827
+    clipped: false

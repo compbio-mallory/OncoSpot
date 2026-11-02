@@ -1,0 +1,55 @@
+cancer_type: HGSOC
+reference: SA1053
+patient_count: 1
+reference_cells: 3369
+sample_count: 3
+cell_selection: Exact historical TreeAlign/SA1053 state cell set
+signature_file: data/references/msigdb/hallmark/h.all.v2026.1.Hs.symbols.gmt
+scoring_method: mean_of_within_gene_standardized_log1p_CPM
+state_scale: global_mean_0_population_sd_1
+states:
+- PROLIFERATION
+- WNT
+- MYC
+- HYPOXIA
+- EMT
+- METABOLIC
+signature_coverage:
+  PROLIFERATION:
+    signature_genes: 327
+    usable_genes: 321
+    coverage_fraction: 0.981651376146789
+    source_sets:
+    - HALLMARK_E2F_TARGETS
+    - HALLMARK_G2M_CHECKPOINT
+  WNT:
+    signature_genes: 42
+    usable_genes: 39
+    coverage_fraction: 0.9285714285714286
+    source_sets:
+    - HALLMARK_WNT_BETA_CATENIN_SIGNALING
+  MYC:
+    signature_genes: 200
+    usable_genes: 195
+    coverage_fraction: 0.975
+    source_sets:
+    - HALLMARK_MYC_TARGETS_V1
+  HYPOXIA:
+    signature_genes: 200
+    usable_genes: 190
+    coverage_fraction: 0.95
+    source_sets:
+    - HALLMARK_HYPOXIA
+  EMT:
+    signature_genes: 200
+    usable_genes: 188
+    coverage_fraction: 0.94
+    source_sets:
+    - HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION
+  METABOLIC:
+    signature_genes: 200
+    usable_genes: 192
+    coverage_fraction: 0.96
+    source_sets:
+    - HALLMARK_GLYCOLYSIS
+state_sampling: row_with_replacement_no_clone_conditioning

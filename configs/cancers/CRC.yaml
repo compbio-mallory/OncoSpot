@@ -1,0 +1,93 @@
+schema_version: '1.0'
+cancer_type: CRC
+metadata:
+  full_name: Colorectal cancer
+  preset_version: '1.0'
+  status: provisional_integration
+  description: CRC gland-fission simulation using CRC-specific expression references
+    and existing shared spatial/CNA/Visium simulation machinery.
+simulation:
+  n_cells:
+    default: 15000
+    recommended_min: 10000
+    recommended_max: 200000
+  technology:
+    default: visium
+tissue:
+  tumor_fraction:
+    default: 0.5
+malignant:
+  cell_of_origin:
+    name: colon_stem_like_TA
+    source_parameter_bundle: CRC
+  tumor_states:
+    mode: empirical_reference_sampling
+    states: &id001
+    - PROLIFERATION
+    - WNT
+    - MYC
+    - HYPOXIA
+    - EMT
+    - METABOLIC
+    state_generation:
+      formula: z_i ~ P_CRC(z)
+      clone_state_decomposition: false
+      lineage_state_inheritance: false
+demon:
+  mode: gland_fission
+  preset: CRC_gland_fission_v1
+  parameter_file: parameters/CRC/malignant/demon_preset.yaml
+cnasim:
+  preset: shared_HGSOC_provisional
+  user_controls:
+    cna_burden:
+      default: default
+      allowed:
+      - low
+      - default
+      - high
+  parameter_file: parameters/HGSOC/malignant/cnasim_preset.yaml
+tme:
+  preset: shared_spatial_provisional
+  status: pending_crc_spatial_validation
+  spatial_model:
+    mode: demon_correlated_v1
+  cell_types:
+  - T_cell
+  - myeloid_macrophage
+  - fibroblast
+  - endothelial
+  - B_plasma
+  - normal_epithelial
+  compartment_parameter_file: parameters/HGSOC/spatial/compartment_preset.yaml
+  cell_type_parameter_file: parameters/HGSOC/normal_cell_types/cell_type_preset.yaml
+expression:
+  distribution: NB2
+  malignant:
+    model: colon_origin_CNA_state_NB2
+    parameter_file: parameters/CRC/malignant/expression/malignant_expression_parameters.tsv
+    metadata_file: parameters/CRC/malignant/expression/expression_metadata.yaml
+    library_size_file: parameters/CRC/malignant/expression/crc_malignant_library_sizes.tsv
+    cn0_rule: mu_zero
+    reference_copy_number: 2
+  normal:
+    model: cell_type_baseline
+    baseline_file: parameters/CRC/nonmalignant/expression/tme_expression_baselines.tsv
+    library_size_file: parameters/CRC/nonmalignant/expression/library_sizes_by_cell_type.tsv
+    dispersion_file: parameters/CRC/nonmalignant/expression/tme_dispersion.yaml
+  cell_of_origin:
+    label: colon_stem_like_TA
+    parameter_file: parameters/CRC/malignant/cell_of_origin/colon_stem_like_baseline.tsv
+    metadata_file: parameters/CRC/malignant/cell_of_origin/baseline_metadata.yaml
+observation:
+  default_technology: visium
+  visium:
+    preset: shared_visium_v1
+  xenium:
+    preset: HGSOC_default
+    status: pending_implementation
+tumor_states:
+  mode: empirical_reference
+  parameter_file: parameters/CRC/tumor_states/crc_state_reference.tsv
+  metadata_file: parameters/CRC/tumor_states/state_metadata.yaml
+  states: *id001

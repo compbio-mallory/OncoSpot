@@ -1,0 +1,69 @@
+preset_name: HCC_boundary_growth_v1
+architecture: boundary_growth
+preset_version: '1.0'
+provenance:
+  source: data/interim/demon/mode_comparison_v1/04_boundary_growth/config.dat
+  status: provisional_hcc_v1
+  note: Uses previously tested DEMON boundary-restricted invasion architecture. HCC-specific
+    biological validation is pending.
+spatial_structure:
+  log2_deme_carrying_capacity:
+    default: 9
+    recommended_min: 8
+    recommended_max: 11
+    hard_min: 1
+    hard_max: 16
+dispersal:
+  migration_type: 0
+  init_migration_rate: -1
+  migration_edge_only: 1
+  migration_rate_scales_with_K: 1
+mutation_rates:
+  mu_driver_birth: 0.0001
+  mu_passenger:
+    default: 0.1
+    recommended_min: 0.01
+    recommended_max: 0.5
+    hard_min: 0.0
+    hard_max: 10.0
+  mu_driver_migration:
+    default: 0.0
+    hard_min: 0.0
+    hard_max: 0.01
+  passenger_pop_threshold: -1
+fitness_effects:
+  normal_birth_rate:
+    default: 0.9
+    recommended_min: 0.8
+    recommended_max: 1.0
+    hard_min: 0.0
+    hard_max: 2.0
+  baseline_death_rate:
+    default: 0.0
+    hard_min: 0.0
+    hard_max: 10.0
+  s_driver_birth: 0.05
+  s_passenger:
+    default: 0.0
+  s_driver_migration:
+    default: 0.0
+  max_relative_birth_rate:
+    default: 10.0
+  max_relative_migration_rate:
+    default: 10.0
+runtime:
+  init_pop: 1
+  max_pop_source: simulation.n_cells
+  max_time: 14400
+  max_generations: 3000
+  seed_source: simulation.seed
+outputs:
+  write_grid: 0
+  write_clones_file: 1
+  write_demes_file: 1
+  record_matrix: 0
+  write_phylo: 0
+  calculate_total_diversity: 0
+  biopsy_size_per_sample: 100
+validation_target:
+  intended_evolutionary_mode: branching

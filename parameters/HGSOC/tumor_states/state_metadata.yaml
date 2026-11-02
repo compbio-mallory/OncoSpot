@@ -1,0 +1,55 @@
+preset_name: HGSOC_SA1053_empirical_states
+preset_version: "0.1"
+
+cancer_type: HGSOC
+reference_sample: SA1053
+
+model:
+  type: empirical_cell_state_sampling
+  sampling: row_with_replacement
+  clone_conditioning: false
+  lineage_inheritance: false
+  spatial_state_model: false
+
+states:
+  - G2M
+  - S_PHASE
+  - HYPOXIA
+  - IFN_BROAD
+  - IFN_INFLAMMATORY
+  - EMT
+
+reference:
+  n_cells: 3369
+  state_scale: global_mean_0_population_sd_1
+  parameter_file: parameters/HGSOC/tumor_states/sa1053_state_reference.tsv
+
+state_origin:
+  source_model: factor_analysis_varimax_v1_k10
+  mappings:
+    G2M: "+factor_2"
+    S_PHASE: "+factor_6"
+    HYPOXIA: "+factor_7"
+    IFN_BROAD: "+factor_1"
+    IFN_INFLAMMATORY: "+factor_10"
+    EMT: "-factor_5"
+
+runtime:
+  rng_stage: 4001
+  malignant_only: true
+  nonmalignant_state_scores: false
+
+provenance:
+  source_artifact: data/processed/expression/tumor_states/SA1053/runtime_states_v2/cell_state_scores.tsv
+  IFN_policy: >
+    IFN_BROAD and IFN_INFLAMMATORY are retained separately.
+  OXPHOS_policy: >
+    OXPHOS was excluded from runtime v2 because the source factor
+    was biologically mixed.
+
+note: >
+  Simulator malignant cells sample complete six-dimensional state
+  vectors directly from the empirical SA1053 reference distribution.
+  DEMON clone identity does not affect state sampling in the simplified
+  simulator. Old clone-state means, shrinkage, lineage inheritance,
+  and within-clone residual models are not used.

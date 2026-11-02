@@ -1,0 +1,60 @@
+preset_name: HGSOC_default
+preset_version: '0.2'
+status: provisional_coarse_calibrated
+description: 'Default CNA-generation preset for the simplified HGSOC simulator. The
+  default scenario is based on the previously tested CNAsim showcase settings. These
+  values are software defaults and are not claimed to be quantitatively calibrated
+  HGSOC CNA constants.
+
+  '
+tree:
+  tree_type: 2
+  branch_length_mode: unit
+simulation:
+  mode: 0
+  num_cells_placeholder: 1
+  normal_fraction: 0
+  pseudonormal_fraction: 0
+  num_additional_clones: 0
+focal_events:
+  placement_type: 0
+  placement_param: 2.0
+  founder_event_multiplier: 4.0
+  region_length_bp: 100000
+  output_bin_length_bp: 1000000
+  mean_event_length_bp: 10000000
+  minimum_event_length_bp: 500000
+  copy_parameter: 0.5
+  amplification_probability: 0.5
+broad_events:
+  enabled: true
+  chromosome_arm_probability: 0.7
+  founder_rate: 2.0
+  immediate_post_founder_rate: 1.0
+  internal_branch_rate: 0.5
+  duplication_probability: 0.5
+genome:
+  preset: hg38_autosomes
+observation_noise:
+  error_rate_1: 0
+  error_rate_2: 0
+burden_levels:
+  low:
+    event_rate_multiplier: 2.0
+  default:
+    event_rate_multiplier: 4.0
+  high:
+    event_rate_multiplier: 6.0
+provenance:
+  source: archived_HGSOC_showcase_C_cnasim_v1
+  calibration_status: coarse_HGSOC_burden_calibration
+  note: 'Low/default/high are user-facing software controls. They scale focal and
+    broad CNA event rates around the default scenario.
+
+    '
+  calibration_run: results/runs/config_smoke_hgsoc_minimal/validation/cnasim_burden
+  selected_default_multiplier: 4.0
+  selected_default_altered_fraction: 0.4050323600973237
+  selection_note: Default 4x was selected as the smallest tested multiplier within
+    the coarse 0.40-0.55 altered-genome target range. This remains a software-level
+    HGSOC default rather than patient-specific parameter estimation.

@@ -1,0 +1,55 @@
+preset_name: HGSOC_malignant_expression
+preset_version: '0.1'
+runtime_model: FTSEC_CNA_state_NB2
+n_genes: 19190
+gene_universe:
+  definition: positive_FTSEC_baseline intersect gene_level_CNA_mapping
+  n_genes: 19190
+  original_FTSEC_mass_retained: 0.8769501397915017
+  runtime_baseline_mass: 1.0
+cell_of_origin:
+  source: GSE151214
+  type: early_secretory_ftsec
+  baseline_method: equal_patient_weighted_pseudobulk
+cna_response:
+  source: SA1053
+  global_beta: 0.41535995888056954
+  n_gene_specific_beta: 3756
+  n_nonpositive_beta_replaced: 975
+  runtime_policy: retain beta>0; replace beta<=0 with global positive beta
+  reference_copy_number: 2
+  cn0_rule: mu=0
+dispersion:
+  model: NB2
+  variance: mu + phi * mu^2
+  pooled_fallback: 0.5689652598822481
+tumor_states:
+  source: SA1053
+  states:
+  - G2M
+  - S_PHASE
+  - HYPOXIA
+  - IFN_BROAD
+  - IFN_INFLAMMATORY
+  - EMT
+  n_gamma_calibrated_genes: 5143
+  n_gamma_zero_fallback_genes: 14047
+  runtime_policy: retain calibrated gamma; unsupported genes use gamma=0
+  state_effect_stabilization:
+    method: gene_specific_reference_quantile_winsorization
+    reference: SA1053 tumor-state reference
+    lower_quantile: 0.005
+    upper_quantile: 0.995
+    applied_to: combined gamma_g^T z_i term
+    state_scores_modified: false
+    gamma_coefficients_modified: false
+    reason: Prevent rare extreme combinations of empirical state scores and fitted
+      gamma coefficients from dominating the simulated transcriptome.
+mean_model: log(mu_gi) = log(L_i) + alpha_g + beta_g*log(CN_gci/2) + gamma_g^T z_i
+hard_zero_rule: CN=0 implies mu=0
+parameter_file: parameters/HGSOC/malignant/expression/malignant_expression_parameters.tsv
+library_size:
+  source: SA1053
+  model: empirical_sampling_with_replacement
+  parameter_file: parameters/HGSOC/malignant/expression/sa1053_library_sizes.tsv
+  positive_values_only: true

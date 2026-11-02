@@ -1,0 +1,40 @@
+schema_version: "1.0"
+
+simulation:
+  seed: 20260901
+
+  n_cells:
+    default: 50000
+    recommended_min: 10000
+    recommended_max: 200000
+    hard_min: 1000
+    hard_max: 1000000
+
+  technology:
+    default: visium
+    supported:
+      - visium
+      - xenium
+
+tissue:
+  tumor_fraction:
+    default: 0.80
+    recommended_min: 0.40
+    recommended_max: 0.95
+    hard_min: 0.05
+    hard_max: 0.99
+
+expression:
+  distribution: NB2
+
+observation:
+  visium:
+    enabled: true
+
+  xenium:
+    enabled: true
+    status: planned_initial_support
+
+runtime:
+  warn_outside_recommended_bounds: true
+  reject_outside_hard_bounds: true

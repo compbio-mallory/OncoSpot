@@ -1,0 +1,93 @@
+schema_version: '1.0'
+cancer_type: HCC
+metadata:
+  full_name: Hepatocellular carcinoma
+  preset_version: '1.0'
+  status: provisional_integration
+  description: HCC boundary-growth simulation using GSE149614 expression parameters
+    and shared provisional CNA, spatial, and Visium components.
+simulation:
+  n_cells:
+    default: 15000
+    recommended_min: 10000
+    recommended_max: 200000
+  technology:
+    default: visium
+tissue:
+  tumor_fraction:
+    default: 0.5
+malignant:
+  cell_of_origin:
+    name: normal_hepatocyte
+    source_parameter_bundle: HCC
+  tumor_states:
+    mode: empirical_reference_sampling
+    states: &id001
+    - PROLIFERATION
+    - WNT
+    - MYC
+    - HYPOXIA
+    - EMT
+    - METABOLIC
+    state_generation:
+      formula: z_i ~ P_HCC(z)
+      clone_state_decomposition: false
+      lineage_state_inheritance: false
+demon:
+  mode: boundary_growth
+  preset: HCC_boundary_growth_v1
+  parameter_file: parameters/HCC/malignant/demon_preset.yaml
+cnasim:
+  preset: shared_HGSOC_provisional
+  user_controls:
+    cna_burden:
+      default: default
+      allowed:
+      - low
+      - default
+      - high
+  parameter_file: parameters/HGSOC/malignant/cnasim_preset.yaml
+tme:
+  preset: shared_spatial_provisional
+  status: pending_hcc_spatial_validation
+  spatial_model:
+    mode: demon_correlated_v1
+  cell_types:
+  - T_cell
+  - myeloid_macrophage
+  - fibroblast
+  - endothelial
+  - B_plasma
+  - normal_epithelial
+  compartment_parameter_file: parameters/HGSOC/spatial/compartment_preset.yaml
+  cell_type_parameter_file: parameters/HGSOC/normal_cell_types/cell_type_preset.yaml
+expression:
+  distribution: NB2
+  malignant:
+    model: hepatocyte_origin_CNA_state_NB2
+    parameter_file: parameters/HCC/malignant/expression/malignant_expression_parameters.tsv
+    metadata_file: parameters/HCC/malignant/expression/expression_metadata.yaml
+    library_size_file: parameters/HCC/malignant/expression/hcc_malignant_library_sizes.tsv
+    cn0_rule: mu_zero
+    reference_copy_number: 2
+  normal:
+    model: cell_type_baseline
+    baseline_file: parameters/HCC/nonmalignant/expression/tme_expression_baselines.tsv
+    library_size_file: parameters/HCC/nonmalignant/expression/library_sizes_by_cell_type.tsv
+    dispersion_file: parameters/HCC/nonmalignant/expression/tme_dispersion.yaml
+  cell_of_origin:
+    label: normal_hepatocyte
+    parameter_file: parameters/HCC/malignant/cell_of_origin/normal_hepatocyte_baseline.tsv
+    metadata_file: parameters/HCC/malignant/cell_of_origin/baseline_metadata.yaml
+observation:
+  default_technology: visium
+  visium:
+    preset: shared_visium_v1
+  xenium:
+    preset: HGSOC_default
+    status: pending_implementation
+tumor_states:
+  mode: empirical_reference
+  parameter_file: parameters/HCC/tumor_states/hcc_state_reference.tsv
+  metadata_file: parameters/HCC/tumor_states/state_metadata.yaml
+  states: *id001

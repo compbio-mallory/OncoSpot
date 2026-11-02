@@ -1,0 +1,23 @@
+stage: visium_depth_reference
+technology: visium_like
+reference_dataset: GSE211956
+reference_sample: GSM6506113_SP4
+reference_matrix: GSM6506113_SP4_matrix.mtx.gz
+n_reference_spots: 3007
+histogram_requested_bins: 50
+histogram_nonempty_bins: 34
+mean_umis: 6923.297306285334
+median_umis: 6165.0
+std_umis: 4165.149609929856
+min_umis: 15
+max_umis: 56435
+q05_umis: 2316.2
+q25_umis: 4418.5
+q50_umis: 6165.0
+q75_umis: 8416.5
+q95_umis: 13676.8
+sampling_model: sample_histogram_bin_then_uniform_integer_within_bin
+default_depth_multiplier: 1.0
+outputs:
+  histogram: depth_histogram.tsv
+  reference_values: reference_spot_umis.tsv.gz

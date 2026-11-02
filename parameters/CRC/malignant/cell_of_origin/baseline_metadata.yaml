@@ -1,0 +1,24 @@
+cancer_type: CRC
+dataset: GSE132465
+reference_population: normal_epithelial_Stem-like/TA
+origin_label: colon_stem_like_TA
+method: equal_patient_weighted_pseudobulk
+annotation: GENCODE v50 GRCh38.p14 autosomes
+n_origin_cells: 406
+n_origin_patients: 10
+n_genes: 19796
+n_positive_genes: 13971
+mapped_umi_fraction_in_origin_cells: 0.7890956944145202
+patient_cell_counts:
+  SMC01: 90
+  SMC02: 53
+  SMC10: 53
+  SMC07: 50
+  SMC04: 48
+  SMC03: 40
+  SMC09: 33
+  SMC05: 27
+  SMC06: 7
+  SMC08: 5
+baseline_file: parameters/CRC/malignant/cell_of_origin/colon_stem_like_baseline.tsv
+status: provisional_crc_v1

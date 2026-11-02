@@ -1,0 +1,42 @@
+dataset: GSE149614
+cancer_type: HCC
+role: nonmalignant_cell_type_expression_baselines
+source_expression: raw_UMI_counts
+gene_annotation: GENCODE_v50_autosomes
+normalization: donor_x_cell_type_pseudobulk
+donor_aggregation: equal_donor_mean
+minimum_cells_per_donor_type: 20
+n_genes: 17475
+cell_types:
+- T_NK
+- B_plasma
+- macrophage_myeloid
+- fibroblast
+- endothelial
+- normal_epithelial
+reference_groups:
+  T_NK:
+    n_donors: 10
+    n_cells: 6831
+    positive_genes: 16390
+  B_plasma:
+    n_donors: 9
+    n_cells: 1890
+    positive_genes: 15309
+  macrophage_myeloid:
+    n_donors: 10
+    n_cells: 8209
+    positive_genes: 16163
+  fibroblast:
+    n_donors: 7
+    n_cells: 1559
+    positive_genes: 15283
+  endothelial:
+    n_donors: 7
+    n_cells: 1655
+    positive_genes: 15020
+  normal_epithelial:
+    n_donors: 8
+    n_cells: 1788
+    positive_genes: 14690
+parameter_file: parameters/HCC/nonmalignant/expression/tme_expression_baselines.tsv

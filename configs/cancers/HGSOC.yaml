@@ -1,0 +1,92 @@
+schema_version: '1.0'
+cancer_type: HGSOC
+metadata:
+  full_name: High-grade serous ovarian carcinoma
+  preset_version: '1.1'
+  status: validated_hallmark_v1
+  description: Validated HGSOC v1 preset for the cancer spatial transcriptomics simulator. Includes calibrated DEMON subclone dynamics, validated malignant/non-malignant spatial assignment, neighborhood-based non-malignant cell-type placement, CNA simulation, malignant and non-malignant expression models, and Visium-like observation.
+simulation:
+  n_cells:
+    default: 50000
+    recommended_min: 10000
+    recommended_max: 200000
+  technology:
+    default: visium
+tissue:
+  tumor_fraction:
+    default: 0.8
+malignant:
+  cell_of_origin:
+    name: early_secretory_FTSEC
+    source_parameter_bundle: HGSOC
+  tumor_states:
+    mode: empirical_reference_sampling
+    states: &id001
+    - PROLIFERATION
+    - WNT
+    - MYC
+    - HYPOXIA
+    - EMT
+    - METABOLIC
+    state_generation:
+      formula: z_i ~ P_HGSOC(z)
+      clone_state_decomposition: false
+      lineage_state_inheritance: false
+demon:
+  mode: invasive_glandular
+  preset: HGSOC_default
+  note: 'HGSOC uses the invasive glandular DEMON architecture as the default solid-tumor growth mode for the current simulator preset.
+
+    '
+  parameter_file: parameters/HGSOC/malignant/demon_preset.yaml
+cnasim:
+  preset: HGSOC_default
+  user_controls:
+    cna_burden:
+      default: default
+      allowed:
+      - low
+      - default
+      - high
+  parameter_file: parameters/HGSOC/malignant/cnasim_preset.yaml
+tme:
+  preset: HGSOC_default
+  status: validated_spatial_model
+  spatial_model:
+    mode: demon_correlated_v1
+  cell_types:
+  - T_cell
+  - myeloid_macrophage
+  - fibroblast
+  - endothelial
+  - B_plasma
+  - normal_epithelial
+  compartment_parameter_file: parameters/HGSOC/spatial/compartment_preset.yaml
+  cell_type_parameter_file: parameters/HGSOC/normal_cell_types/cell_type_preset.yaml
+expression:
+  distribution: NB2
+  malignant:
+    model: FTSEC_CNA_state_NB2
+    parameter_file: parameters/HGSOC/hallmark_v1/malignant/expression/malignant_expression_parameters.tsv
+    metadata_file: parameters/HGSOC/hallmark_v1/malignant/expression/expression_metadata.yaml
+    library_size_file: parameters/HGSOC/malignant/expression/sa1053_library_sizes.tsv
+    cn0_rule: mu_zero
+    reference_copy_number: 2
+  normal:
+    model: cell_type_baseline
+  cell_of_origin:
+    label: early_secretory_ftsec
+    parameter_file: parameters/HGSOC/malignant/cell_of_origin/early_secretory_ftsec_baseline.tsv
+    metadata_file: parameters/HGSOC/malignant/cell_of_origin/baseline_metadata.yaml
+observation:
+  default_technology: visium
+  visium:
+    preset: HGSOC_default
+  xenium:
+    preset: HGSOC_default
+    status: pending_implementation
+tumor_states:
+  mode: empirical_reference
+  parameter_file: parameters/HGSOC/hallmark_v1/tumor_states/hgsoc_state_reference.tsv
+  metadata_file: parameters/HGSOC/hallmark_v1/tumor_states/state_metadata.yaml
+  states: *id001

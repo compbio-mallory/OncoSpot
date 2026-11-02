@@ -1,0 +1,4 @@
+cancer_type: HCC
+simulation:
+  seed: 20261012
+  n_cells: 15000

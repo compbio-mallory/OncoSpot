@@ -1,0 +1,22 @@
+cancer_type: HGSOC
+reference: SA1053
+model: same 6-state ridge/quantile calibration as CRC and HCC
+patient_centering: global centering because only one patient
+ridge_lambda_per_cell: 0.05
+gamma_cap: 0.3
+min_detection: 0.01
+min_mean_count: 0.05
+lower_quantile: 0.005
+upper_quantile: 0.995
+preserved_columns:
+- gene_id
+- gene_symbol
+- baseline_fraction
+- alpha
+- beta
+- dispersion
+- beta_source
+- beta_replaced
+- dispersion_source
+source_parameter_file: parameters/HGSOC/malignant/expression/malignant_expression_parameters.tsv
+status: calibration_candidate_not_activated_in_simulation

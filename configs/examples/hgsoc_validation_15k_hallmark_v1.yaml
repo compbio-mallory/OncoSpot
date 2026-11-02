@@ -1,0 +1,48 @@
+schema_version: '1.0'
+cancer_type: HGSOC
+simulation:
+  seed: 20261008
+  n_cells: 15000
+  technology: visium
+tissue:
+  tumor_fraction: 0.5
+user_controls:
+  cna_burden: default
+observation:
+  default_technology: visium
+  visium:
+    enabled: true
+    geometry:
+      target_median_cells_per_spot: 2
+    depth_reference:
+      parameter_dir: parameters/observation/visium/gse211956_sp4
+    depth_multiplier: 1.0
+malignant:
+  tumor_states:
+    mode: empirical_reference_sampling
+    states:
+    - PROLIFERATION
+    - WNT
+    - MYC
+    - HYPOXIA
+    - EMT
+    - METABOLIC
+    state_generation:
+      formula: z_i ~ P_HGSOC(z)
+      clone_state_decomposition: false
+      lineage_state_inheritance: false
+expression:
+  malignant:
+    parameter_file: parameters/HGSOC/hallmark_v1/malignant/expression/malignant_expression_parameters.tsv
+    metadata_file: parameters/HGSOC/hallmark_v1/malignant/expression/expression_metadata.yaml
+tumor_states:
+  mode: empirical_reference
+  parameter_file: parameters/HGSOC/hallmark_v1/tumor_states/hgsoc_state_reference.tsv
+  metadata_file: parameters/HGSOC/hallmark_v1/tumor_states/state_metadata.yaml
+  states:
+  - PROLIFERATION
+  - WNT
+  - MYC
+  - HYPOXIA
+  - EMT
+  - METABOLIC

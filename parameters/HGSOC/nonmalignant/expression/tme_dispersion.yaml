@@ -1,0 +1,34 @@
+dataset: GSE184880
+cancer_type: HGSOC
+model: NB2
+variance_definition: Var(Y)=mu+phi*mu^2
+mean_model: mu_gi=library_size_i*baseline_fraction_g_celltype
+dispersion_level: one_pooled_dispersion_per_broad_cell_type
+estimation: pooled_method_of_moments
+interpretation: The pooled dispersion captures residual within-cell-type variation
+  not represented by the broad cell-type mean model.
+parameters:
+  T_NK:
+    n_cells: 11495
+    raw_method_of_moments_phi: 0.2747282436366087
+    dispersion: 0.2747282436366087
+  B_plasma:
+    n_cells: 1667
+    raw_method_of_moments_phi: 2.561140106612769
+    dispersion: 2.561140106612769
+  macrophage_myeloid:
+    n_cells: 3302
+    raw_method_of_moments_phi: 0.7962852974343156
+    dispersion: 0.7962852974343156
+  fibroblast:
+    n_cells: 1342
+    raw_method_of_moments_phi: 0.32161756534080677
+    dispersion: 0.32161756534080677
+  endothelial:
+    n_cells: 386
+    raw_method_of_moments_phi: 0.3147708364363115
+    dispersion: 0.3147708364363115
+  normal_epithelial:
+    n_cells: 527
+    raw_method_of_moments_phi: 0.3197911497317714
+    dispersion: 0.3197911497317714

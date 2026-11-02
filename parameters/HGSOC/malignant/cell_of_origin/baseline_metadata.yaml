@@ -1,0 +1,53 @@
+preset_name: HGSOC_early_secretory_FTSEC
+preset_version: "0.1"
+
+cell_of_origin: early_secretory_ftsec
+
+source:
+  dataset_id: GSE151214
+  tissue: normal_human_fallopian_tube
+  source_harmony_cluster: "1"
+
+reference_cells:
+  n_cells: 1977
+  n_patients: 7
+  n_samples: 11
+
+patients:
+  - patient_1
+  - patient_2
+  - patient_3
+  - patient_5
+  - patient_6
+  - patient_7
+  - patient_8
+
+baseline_method:
+  type: equal_patient_weighted_pseudobulk_expression_fraction
+  alpha_definition: log(baseline_expression_fraction)
+  zero_expression_policy: alpha_NA
+
+gene_summary:
+  n_reference_genes: 21184
+  n_positive_baseline_genes: 20368
+  n_zero_baseline_genes: 816
+
+runtime:
+  parameter_file: parameters/HGSOC/malignant/cell_of_origin/early_secretory_ftsec_baseline.tsv
+  required_columns:
+    - gene_id
+    - gene_symbol
+    - baseline_fraction_donor_balanced
+    - alpha_origin
+
+provenance:
+  batch_corrected_expression_used: false
+  harmony_used_for_cluster_definition_only: true
+  raw_counts_preserved_in_calibration_artifacts: true
+  doublets_removed: false
+
+note: >
+  This is a calibrated HGSOC cell-of-origin parameter bundle derived
+  once from GSE151214 early-secretory fallopian-tube epithelial cells.
+  The simulator runtime consumes the parameter table directly and does
+  not rerun QC, clustering, Harmony, or pseudobulk estimation.

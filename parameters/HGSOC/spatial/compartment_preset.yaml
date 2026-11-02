@@ -1,0 +1,39 @@
+mode: demon_correlated_v1
+
+description: >
+  DEMON-preserving HGSOC spatial realization. The DEMON scaffold provides
+  coarse tissue geometry and tumor lineage organization. A mild smooth
+  coordinate warp reduces grid-like tissue boundaries. Malignant versus
+  non-malignant compartment assignment combines an outer-tissue boundary
+  preference with a smooth correlated spatial field. The calibrated HGSOC
+  realization preferentially places non-malignant tissue around the tumor
+  while retaining irregular internal non-malignant regions.
+
+geometry_warp:
+  sigma: 1.6
+  strength: 0.45
+  boundary_jitter_sd: 0.1
+
+correlated_field:
+  sigma: 0.95
+  boundary_weight: 0.45
+  random_field_weight: 0.55
+  cell_noise_sd: 0.07
+
+constraints:
+  preserve_demon_backbone: true
+  exact_compartment_counts: true
+  preserve_original_coordinates_for_provenance: true
+  nonmalignant_cells_drop_biological_tumor_lineage: true
+
+provenance:
+  spatial_calibration: hgsoc_boundary_weight_validation_20261008
+  candidate_weights_tested:
+    - 0.30
+    - 0.45
+    - 0.50
+    - 0.55
+    - 0.65
+    - 0.80
+  selected_boundary_weight: 0.45
+  selected_random_field_weight: 0.55

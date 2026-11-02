@@ -1,0 +1,44 @@
+dataset: GSE132465
+cancer_type: CRC
+role: nonmalignant_cell_type_library_size_reference
+sampling_model: empirical_with_replacement_within_cell_type
+library_size_definition: retained_mapped_autosomal_UMIs
+n_reference_cells: 30250
+summary_by_cell_type:
+  T_NK:
+    n_cells: 16739
+    median: 2105.0
+    mean: 2283.27809307605
+    min: 755
+    max: 9165
+  B_plasma:
+    n_cells: 3926
+    median: 3924.5
+    mean: 8777.597809475294
+    min: 814
+    max: 58176
+  macrophage_myeloid:
+    n_cells: 6400
+    median: 4161.0
+    mean: 5056.23609375
+    min: 743
+    max: 31500
+  fibroblast:
+    n_cells: 1435
+    median: 10134.0
+    mean: 11127.878745644599
+    min: 826
+    max: 39219
+  endothelial:
+    n_cells: 698
+    median: 6579.5
+    mean: 8163.277936962751
+    min: 822
+    max: 31508
+  normal_epithelial:
+    n_cells: 1052
+    median: 3609.5
+    mean: 7762.856463878327
+    min: 788
+    max: 43222
+parameter_file: parameters/CRC/nonmalignant/expression/library_sizes_by_cell_type.tsv

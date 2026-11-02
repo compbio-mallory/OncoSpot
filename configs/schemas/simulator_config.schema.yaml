@@ -1,0 +1,57 @@
+schema_version: "1.0"
+
+required:
+  - cancer_type
+
+properties:
+
+  cancer_type:
+    type: string
+    description: >
+      Cancer preset to load, for example HGSOC.
+
+  simulation:
+
+    seed:
+      type: integer
+      optional: true
+
+    n_cells:
+      type: integer
+      optional: true
+      description: >
+        Total number of cells in the simulated tissue,
+        including malignant and normal/TME cells.
+
+    technology:
+      type: string
+      optional: true
+      allowed:
+        - visium
+        - xenium
+
+  tissue:
+
+    tumor_fraction:
+      type: number
+      optional: true
+      description: >
+        Fraction of total cells assigned to the malignant
+        compartment.
+
+  customize:
+
+    cna_burden:
+      type: string
+      optional: true
+      allowed:
+        - low
+        - default
+        - high
+
+  expert:
+    type: mapping
+    optional: true
+    description: >
+      Reserved for future low-level overrides. Expert values
+      remain subject to hard validation bounds.

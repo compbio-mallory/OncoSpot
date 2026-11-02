@@ -1,0 +1,56 @@
+mode: continuous_rectangle_v1
+
+description: >
+  Continuous filled-tissue spatial realization for CNVoxel validation.
+  DEMON continues to define tumor evolution and lineage composition,
+  but its sparse/disconnected lattice geometry is not used directly
+  as the final tissue footprint. The same biological cell records are
+  redistributed over a completely occupied rectangular spatial
+  scaffold while preserving exact DEMON deme-by-clone counts.
+
+cell_scaffold:
+  mode: continuous_rectangle_v1
+
+  # Cells are jittered inside each filled spatial tile.
+  # Must remain below 0.5.
+  coordinate_jitter: 0.48
+
+geometry_warp:
+  # Disable additional deformation for the first validation pilot.
+  # This lets us evaluate the continuous scaffold itself.
+  sigma: 1.6
+  strength: 0.0
+  boundary_jitter_sd: 0.0
+
+correlated_field:
+  sigma: 0.95
+
+  # Retain the accepted balance between peripheral TME
+  # and internally heterogeneous TME.
+  boundary_weight: 0.45
+  random_field_weight: 0.55
+
+  cell_noise_sd: 0.07
+
+constraints:
+  preserve_demon_backbone: false
+
+  preserve_demon_lineage_counts: true
+  exact_compartment_counts: true
+
+  continuous_tissue_footprint: true
+  all_spatial_tiles_occupied: true
+
+  preserve_original_coordinates_for_provenance: true
+
+  nonmalignant_cells_drop_biological_tumor_lineage: true
+
+provenance:
+  spatial_model:
+    continuous_rectangle_v1
+
+  reason:
+    professor_requested_filled_tissue_20261020
+
+  previous_model:
+    demon_correlated_v1

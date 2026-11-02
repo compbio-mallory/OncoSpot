@@ -1,0 +1,44 @@
+dataset: GSE149614
+cancer_type: HCC
+role: nonmalignant_cell_type_library_size_reference
+sampling_model: empirical_with_replacement_within_cell_type
+library_size_definition: retained_mapped_autosomal_UMIs
+n_reference_cells: 21932
+summary_by_cell_type:
+  T_NK:
+    n_cells: 6831
+    median: 2633.0
+    mean: 5485.010686575904
+    min: 759
+    max: 103641
+  B_plasma:
+    n_cells: 1890
+    median: 13694.0
+    mean: 14123.427513227512
+    min: 769
+    max: 84893
+  macrophage_myeloid:
+    n_cells: 8209
+    median: 5333.0
+    mean: 6709.913753197709
+    min: 848
+    max: 104093
+  fibroblast:
+    n_cells: 1559
+    median: 5339.0
+    mean: 6869.437459910198
+    min: 899
+    max: 62058
+  endothelial:
+    n_cells: 1655
+    median: 5980.0
+    mean: 8572.905135951662
+    min: 660
+    max: 49728
+  normal_epithelial:
+    n_cells: 1788
+    median: 5842.5
+    mean: 7941.7197986577185
+    min: 870
+    max: 67199
+parameter_file: parameters/HCC/nonmalignant/expression/library_sizes_by_cell_type.tsv

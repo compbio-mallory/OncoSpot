@@ -1,0 +1,44 @@
+dataset: GSE149614
+cancer_type: HCC
+model: NB2
+variance_definition: Var(Y)=mu+phi*mu^2
+dispersion_level: one_pooled_dispersion_per_broad_cell_type
+estimation: pooled_residual_method_of_moments
+status: provisional_requires_validation
+parameters:
+  T_NK:
+    n_cells: 6831
+    genes_used: 7678
+    raw_method_of_moments_phi: 5.3844475195210135
+    dispersion: 5.3844475195210135
+    clipped: false
+  B_plasma:
+    n_cells: 1890
+    genes_used: 8989
+    raw_method_of_moments_phi: 1.5226298240755107
+    dispersion: 1.5226298240755107
+    clipped: false
+  macrophage_myeloid:
+    n_cells: 8209
+    genes_used: 7364
+    raw_method_of_moments_phi: 2.678895148264997
+    dispersion: 2.678895148264997
+    clipped: false
+  fibroblast:
+    n_cells: 1559
+    genes_used: 8428
+    raw_method_of_moments_phi: 0.6622732427125463
+    dispersion: 0.6622732427125463
+    clipped: false
+  endothelial:
+    n_cells: 1655
+    genes_used: 9191
+    raw_method_of_moments_phi: 0.35930946124690866
+    dispersion: 0.35930946124690866
+    clipped: false
+  normal_epithelial:
+    n_cells: 1788
+    genes_used: 8816
+    raw_method_of_moments_phi: 3.423398024861931
+    dispersion: 3.423398024861931
+    clipped: false

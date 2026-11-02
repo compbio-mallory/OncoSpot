@@ -1,0 +1,42 @@
+dataset: GSE132465
+cancer_type: CRC
+role: nonmalignant_cell_type_expression_baselines
+source_expression: raw_UMI_counts
+gene_annotation: GENCODE_v50_autosomes
+normalization: donor_x_cell_type_pseudobulk
+donor_aggregation: equal_donor_mean
+minimum_cells_per_donor_type: 20
+n_genes: 19796
+cell_types:
+- T_NK
+- B_plasma
+- macrophage_myeloid
+- fibroblast
+- endothelial
+- normal_epithelial
+reference_groups:
+  T_NK:
+    n_donors: 23
+    n_cells: 16739
+    positive_genes: 15628
+  B_plasma:
+    n_donors: 22
+    n_cells: 3926
+    positive_genes: 15095
+  macrophage_myeloid:
+    n_donors: 23
+    n_cells: 6400
+    positive_genes: 15563
+  fibroblast:
+    n_donors: 15
+    n_cells: 1435
+    positive_genes: 15596
+  endothelial:
+    n_donors: 14
+    n_cells: 698
+    positive_genes: 14358
+  normal_epithelial:
+    n_donors: 9
+    n_cells: 1052
+    positive_genes: 14443
+parameter_file: parameters/CRC/nonmalignant/expression/tme_expression_baselines.tsv

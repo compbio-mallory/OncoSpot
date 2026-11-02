@@ -1,0 +1,29 @@
+dataset: GSE149614
+cancer_type: HCC
+reference_population: Tumor_site_Hepatocyte
+malignancy_label_status: candidate_malignant_not_independently_confirmed
+source_expression: raw_UMI_counts
+gene_universe: GENCODE_v50_uniquely_mapped_autosomes
+n_reference_cells: 14202
+n_patients: 10
+n_mapped_genes: 17475
+library_size:
+  min: 622
+  median: 12444.0
+  mean: 17431.670891423742
+  q05: 1974.0
+  q95: 50495.54999999997
+  max: 115067
+patient_cell_counts:
+  HCC03: 3474
+  HCC04: 2454
+  HCC02: 2157
+  HCC08: 1842
+  HCC09: 1489
+  HCC05: 1226
+  HCC10: 1165
+  HCC06: 239
+  HCC07: 85
+  HCC01: 71
+parameter_file: parameters/HCC/malignant/expression/hcc_malignant_library_sizes.tsv
+status: provisional_hcc_v1

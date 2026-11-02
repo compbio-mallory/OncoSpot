@@ -1,0 +1,106 @@
+dataset: GSE184880
+cancer_type: HGSOC
+role: nonmalignant_cell_type_library_size_reference
+source_expression: raw_UMI_counts
+raw_counts_layer: counts
+sampling_model: empirical_with_replacement_within_cell_type
+cell_types:
+- T_NK
+- B_plasma
+- macrophage_myeloid
+- fibroblast
+- endothelial
+- normal_epithelial
+n_reference_cells: 18719
+summary_by_cell_type:
+  T_NK:
+    n_cells: 11495
+    mean: 4095.977903436277
+    sd: 2584.106245812212
+    min: 500
+    q01: 629.0
+    q05: 974.0
+    q10: 1326.4
+    q25: 2421.0
+    median: 3713.0
+    q75: 5157.5
+    q90: 7011.6
+    q95: 8524.899999999998
+    q99: 13082.099999999982
+    max: 34603
+  B_plasma:
+    n_cells: 1667
+    mean: 20367.963407318537
+    sd: 17330.981934858486
+    min: 528
+    q01: 921.46
+    q05: 2957.0
+    q10: 4341.8
+    q25: 7468.0
+    median: 16634.0
+    q75: 27169.5
+    q90: 42766.400000000016
+    q95: 53513.59999999998
+    q99: 82897.65999999996
+    max: 143004
+  macrophage_myeloid:
+    n_cells: 3302
+    mean: 14983.06571774682
+    sd: 13436.185615027505
+    min: 501
+    q01: 547.02
+    q05: 856.0
+    q10: 1782.6000000000001
+    q25: 6181.0
+    median: 11385.5
+    q75: 19602.75
+    q90: 32179.300000000003
+    q95: 41431.349999999984
+    q99: 64359.05999999991
+    max: 106010
+  fibroblast:
+    n_cells: 1342
+    mean: 16530.964977645304
+    sd: 8379.268353306825
+    min: 521
+    q01: 1120.83
+    q05: 4417.6
+    q10: 7147.0
+    q25: 11111.25
+    median: 15642.5
+    q75: 20701.5
+    q90: 26626.800000000003
+    q95: 31557.4
+    q99: 43891.67999999997
+    max: 72427
+  endothelial:
+    n_cells: 386
+    mean: 14689.976683937824
+    sd: 14170.311111413896
+    min: 520
+    q01: 537.05
+    q05: 621.75
+    q10: 760.0
+    q25: 2777.75
+    median: 10731.0
+    q75: 21064.75
+    q90: 36081.0
+    q95: 47421.75
+    q99: 57665.44999999998
+    max: 64037
+  normal_epithelial:
+    n_cells: 527
+    mean: 6821.707779886148
+    sd: 13438.987027633211
+    min: 502
+    q01: 505.26
+    q05: 533.3
+    q10: 574.0
+    q25: 711.0
+    median: 1211.0
+    q75: 4772.5
+    q90: 22828.20000000002
+    q95: 37318.799999999996
+    q99: 66228.28000000001
+    max: 80895
+parameter_file: parameters/HGSOC/nonmalignant/expression/library_sizes_by_cell_type.tsv

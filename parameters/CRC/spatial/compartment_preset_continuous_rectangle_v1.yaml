@@ -1,0 +1,30 @@
+mode: continuous_rectangle_v1
+description: CRC continuous filled-tissue spatial realization. DEMON defines tumor
+  evolution and lineage composition, while cells are redistributed over a completely
+  occupied rectangular tissue footprint. Exact DEMON lineage counts and exact malignant/nonmalignant
+  compartment counts are preserved.
+cell_scaffold:
+  mode: continuous_rectangle_v1
+  coordinate_jitter: 0.48
+geometry_warp:
+  sigma: 1.6
+  strength: 0.0
+  boundary_jitter_sd: 0.0
+correlated_field:
+  sigma: 0.95
+  boundary_weight: 0.45
+  random_field_weight: 0.55
+  cell_noise_sd: 0.07
+constraints:
+  preserve_demon_backbone: false
+  preserve_demon_lineage_counts: true
+  exact_compartment_counts: true
+  continuous_tissue_footprint: true
+  all_spatial_tiles_occupied: true
+  preserve_original_coordinates_for_provenance: true
+  nonmalignant_cells_drop_biological_tumor_lineage: true
+provenance:
+  spatial_model: continuous_rectangle_v1
+  reason: professor_requested_filled_tissue_20261020
+  previous_model: demon_correlated_v1
+  cancer_type: CRC

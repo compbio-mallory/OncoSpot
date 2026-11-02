@@ -1,0 +1,169 @@
+dataset: GSE184880
+cancer_type: HGSOC
+role: nonmalignant_cell_type_expression_baselines
+cell_types:
+- T_NK
+- B_plasma
+- macrophage_myeloid
+- fibroblast
+- endothelial
+- normal_epithelial
+source_expression: raw_UMI_counts
+raw_counts_layer: counts
+normalization:
+  level: donor_x_cell_type_pseudobulk
+  definition: Within each retained donor and broad cell type, raw gene counts are
+    summed across cells and divided by the total raw pseudobulk count.
+donor_aggregation:
+  method: equal_donor_mean
+  weight_per_donor: equal
+  minimum_cells_per_donor_type: 20
+  important_note: Cell-rich donors do not receive more weight than other retained
+    donors.
+alpha_definition: log(baseline_fraction)
+zero_expression_policy: alpha is NA when baseline_fraction is exactly zero
+n_genes: 22427
+n_baseline_cells: 18719
+n_donors_by_cell_type:
+  B_plasma: 6
+  T_NK: 7
+  endothelial: 4
+  fibroblast: 5
+  macrophage_myeloid: 7
+  normal_epithelial: 4
+n_cells_by_cell_type:
+  B_plasma: 1667
+  T_NK: 11495
+  endothelial: 386
+  fibroblast: 1342
+  macrophage_myeloid: 3302
+  normal_epithelial: 527
+positive_genes_by_cell_type:
+  B_plasma: 17316
+  T_NK: 19174
+  endothelial: 16505
+  fibroblast: 18616
+  macrophage_myeloid: 19481
+  normal_epithelial: 16149
+zero_genes_by_cell_type:
+  B_plasma: 5111
+  T_NK: 3253
+  endothelial: 5922
+  fibroblast: 3811
+  macrophage_myeloid: 2946
+  normal_epithelial: 6278
+fraction_sum_by_cell_type:
+  B_plasma: 1.0
+  T_NK: 1.0
+  endothelial: 1.0
+  fibroblast: 1.0
+  macrophage_myeloid: 1.0
+  normal_epithelial: 1.0
+retained_donors:
+  B_plasma:
+    Cancer1:
+      n_cells: 268
+      total_raw_counts: 4969480
+    Cancer2:
+      n_cells: 38
+      total_raw_counts: 220162
+    Cancer3:
+      n_cells: 190
+      total_raw_counts: 6122844
+    Cancer4:
+      n_cells: 24
+      total_raw_counts: 429010
+    Cancer5:
+      n_cells: 440
+      total_raw_counts: 10711405
+    Cancer7:
+      n_cells: 707
+      total_raw_counts: 11500494
+  T_NK:
+    Cancer1:
+      n_cells: 2587
+      total_raw_counts: 11679086
+    Cancer2:
+      n_cells: 236
+      total_raw_counts: 1108993
+    Cancer3:
+      n_cells: 2444
+      total_raw_counts: 12354334
+    Cancer4:
+      n_cells: 279
+      total_raw_counts: 1105144
+    Cancer5:
+      n_cells: 3065
+      total_raw_counts: 12377188
+    Cancer6:
+      n_cells: 488
+      total_raw_counts: 1412684
+    Cancer7:
+      n_cells: 2396
+      total_raw_counts: 7045837
+  endothelial:
+    Cancer1:
+      n_cells: 50
+      total_raw_counts: 587819
+    Cancer2:
+      n_cells: 283
+      total_raw_counts: 4316721
+    Cancer5:
+      n_cells: 32
+      total_raw_counts: 494127
+    Cancer6:
+      n_cells: 21
+      total_raw_counts: 271664
+  fibroblast:
+    Cancer1:
+      n_cells: 27
+      total_raw_counts: 499988
+    Cancer2:
+      n_cells: 213
+      total_raw_counts: 4647764
+    Cancer4:
+      n_cells: 31
+      total_raw_counts: 810349
+    Cancer5:
+      n_cells: 75
+      total_raw_counts: 1811300
+    Cancer6:
+      n_cells: 996
+      total_raw_counts: 14415154
+  macrophage_myeloid:
+    Cancer1:
+      n_cells: 1163
+      total_raw_counts: 17626046
+    Cancer2:
+      n_cells: 474
+      total_raw_counts: 6145554
+    Cancer3:
+      n_cells: 471
+      total_raw_counts: 10400440
+    Cancer4:
+      n_cells: 209
+      total_raw_counts: 1970999
+    Cancer5:
+      n_cells: 335
+      total_raw_counts: 6792210
+    Cancer6:
+      n_cells: 454
+      total_raw_counts: 4744482
+    Cancer7:
+      n_cells: 196
+      total_raw_counts: 1794352
+  normal_epithelial:
+    Norm1:
+      n_cells: 45
+      total_raw_counts: 183325
+    Norm3:
+      n_cells: 158
+      total_raw_counts: 2791414
+    Norm4:
+      n_cells: 63
+      total_raw_counts: 167683
+    Norm5:
+      n_cells: 261
+      total_raw_counts: 452618
+parameter_file: parameters/HGSOC/nonmalignant/expression/tme_expression_baselines.tsv
+donor_pseudobulk_file: data/processed/expression/tme/GSE184880/baselines/donor_pseudobulk_expression_fractions.tsv

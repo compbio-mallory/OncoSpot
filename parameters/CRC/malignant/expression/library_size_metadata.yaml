@@ -1,0 +1,21 @@
+dataset: GSE132465
+cancer_type: CRC
+reference_population: tumor_tissue_epithelial
+source_expression: raw_UMI_counts
+gene_universe: GENCODE_v50_uniquely_mapped_autosomes
+n_reference_cells: 17469
+n_patients: 23
+n_mapped_genes: 19796
+library_size:
+  min: 743
+  median: 15891.0
+  mean: 16888.08798442956
+  q05: 1307.0
+  q95: 36588.59999999999
+  max: 71651
+cms_counts:
+  CMS2: 10771
+  CMS3: 5486
+  CMS1: 1201
+  CMS4: 11
+status: provisional_crc_v1
