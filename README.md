@@ -535,6 +535,4 @@ Manuscript details will be updated following publication.
 
 ## 12. License
 
-The OncoSpot software license is pending approval from the project owners.
-
 Third-party software, including DEMON and CNAsim, remains subject to its original license.
