@@ -1,0 +1,15 @@
+# Example user configuration for a new cancer.
+#
+# TEMPLATE ONLY — not runnable until:
+# 1. configs/cancers/CUSTOM.yaml is created.
+# 2. Required cancer-specific parameter files are prepared.
+# 3. DEMON and CNAsim settings are selected and validated.
+
+cancer_type: CUSTOM
+
+simulation:
+  n_cells: 15000
+  seed: 42
+
+tissue:
+  tumor_fraction: 0.5
