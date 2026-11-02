@@ -19,6 +19,13 @@ EXAMPLES = {
     "HCC": "hcc_validation_15k_v1.yaml",
 }
 
+# Include locally registered custom cancers.
+for path in sorted((ROOT / "configs/examples").glob("*_custom.yaml")):
+    cancer = path.name.removesuffix("_custom.yaml").upper()
+    if cancer not in EXAMPLES:
+        EXAMPLES[cancer] = path.name
+
+
 
 def main():
     parser = argparse.ArgumentParser(
