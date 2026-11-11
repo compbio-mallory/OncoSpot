@@ -2,6 +2,8 @@
 
 **OncoSpot: A cancer spatial transcriptomics simulator**
 
+Preprint :  https://doi.org/10.64898/2026.11.01.763496
+
 OncoSpot is a computational framework for generating synthetic spatial transcriptomics (ST) datasets with known tumor evolution, copy-number alterations (CNAs), malignant transcriptional states, nonmalignant microenvironment populations, and spatial organization.
 
 The framework integrates DEMON-based tumor evolution, CNAsim-based copy-number simulation, reference-calibrated expression models, and Visium-like spot-level observation.
@@ -543,7 +545,11 @@ The third-party software retains its respective licensing terms.
 
 ## 11. Citation
 
-If you use OncoSpot in your research, please cite the OncoSpot manuscript once the citation information is available.
+If you use OncoSpot in your research, please cite the OncoSpot manuscript :
+
+OncoSpot enables benchmarking of cancer spatial transcriptomics methods across tumor evolutionary modes
+Pankaj Bhattarai, Weiman Yuan, Xin Maizie Zhou, Xian Mallory
+bioRxiv 2026.11.01.763496; doi: https://doi.org/10.64898/2026.11.01.763496
 
 Manuscript details will be updated following publication.
 
